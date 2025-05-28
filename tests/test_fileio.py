@@ -1,7 +1,7 @@
 import os
 import tempfile
 import json
-from src.pz_fileio import File
+from pz_fileio import File
 
 def test_create_and_exists():
     with tempfile.TemporaryDirectory() as tmpdir:
