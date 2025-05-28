@@ -9,14 +9,14 @@ fileio is a standalone Python package. To use it, simply download the `File.py` 
 Alternatively, if you plan to publish it on PyPI, you could install it via pip:
 
 ```bash
-pip install pz-fileio
+pip install fileio
 ```
 
 *(Assuming the package is published under that name.)*
 
 ## Usage
 
-Here's a quick overview of how to use the `File` class:
+Here’s how to use the `File` class:
 
 ### Import the module
 
@@ -54,11 +54,11 @@ f = File("path/to/your/file.txt")
 
 - **Get basic information**  
   ```python
-  print(f.GetBasename())  # filename only
-  print(f.GetDirname())   # directory name
+  print(f.GetBasename())      # filename only
+  print(f.GetDirname())       # directory name
   print(f.GetAbsolutePath())  # absolute path
-  print(f.GetFileSize())  # file size in bytes
-  print(f.GetMimeType())  # file MIME type
+  print(f.GetFileSize())      # file size in bytes
+  print(f.GetMimeType())      # file MIME type
   ```
 
 ### Reading and writing content
@@ -114,4 +114,23 @@ f = File("path/to/your/file.txt")
 
 - **Create a backup**  
   ```python
-  back
+  backup_path = f.Backup()
+  print(f"Backup created at: {backup_path}")
+  ```
+
+### Context manager usage
+
+The `File` class implements the context management protocol (`with` statement). Use it for **read-only** scenarios:
+
+```python
+with File("path/to/your/file.txt") as f:
+    content = f.Read()
+```
+
+### License
+
+MIT License
+
+---
+
+Want to tweak this further (like adding examples for CSV, JSON, or advanced usage)? Let me know and I’ll extend it! 🚀
